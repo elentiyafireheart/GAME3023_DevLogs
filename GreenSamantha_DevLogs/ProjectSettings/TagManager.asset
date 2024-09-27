@@ -38,14 +38,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Ground
     uniqueID: 2079233111
     locked: 0
   - name: OnGround
     uniqueID: 2887427821
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: Collision
     uniqueID: 920491703
