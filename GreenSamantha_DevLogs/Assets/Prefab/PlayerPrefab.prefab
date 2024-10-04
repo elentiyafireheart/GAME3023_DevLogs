@@ -124,7 +124,13 @@ MonoBehaviour:
   _speed: 2
   _isWalking: 0
   _walkDirection: 0
+  grassLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  hasEncountered: 0
   _animator: {fileID: 8194052123879380644}
+  Camera_1: {fileID: 745666543051127801}
+  Camera_2: {fileID: 1947932206338296019, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
 --- !u!70 &7160371532417589020
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

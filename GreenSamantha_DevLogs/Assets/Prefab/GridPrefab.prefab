@@ -6703,7 +6703,7 @@ GameObject:
   - component: {fileID: 3623734887534143522}
   - component: {fileID: 5079264471566121449}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: GridPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
