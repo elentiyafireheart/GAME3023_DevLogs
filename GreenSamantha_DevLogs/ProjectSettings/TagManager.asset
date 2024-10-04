@@ -3,16 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - BattleCamera
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - TallGrass
+  - 
   - Water
   - UI
-  - Foreground
+  - 
   - 
   - 
   - 
@@ -53,7 +52,4 @@ TagManager:
     locked: 0
   - name: AboveGround
     uniqueID: 370217793
-    locked: 0
-  - name: TallFoliage
-    uniqueID: 1562569905
     locked: 0
