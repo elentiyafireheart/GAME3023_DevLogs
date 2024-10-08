@@ -10,17 +10,17 @@ public class PlayerMovement : MonoBehaviour
     public float _speed = 2.0f; // increase speed
     public bool _isWalking;
     public int _walkDirection;
-    public LayerMask grassLayer;
-    public bool hasEncountered;
+    //public LayerMask grassLayer;
+    //public bool hasEncountered;
     [SerializeField]
     private Animator _animator; // exposes the animator
-    public GameObject Camera_1;
-    public GameObject Camera_2;
+    //public GameObject Camera_1;
+    //public GameObject Camera_2;
 
     // Start is called before the first frame update
     void Start()
     {
-        Cam_1();
+        //Cam_1();
     }
 
     // Update is called once per frame
@@ -40,50 +40,50 @@ public class PlayerMovement : MonoBehaviour
         // multiplying by deltaTime helps smooth out the movement
         // multiply by speed to make it move faster
 
-        CheckForEncounters();
+       // CheckForEncounters();
     }
 
-    public void FleeBattle()
-    {
-        Debug.Log("You fled from the battle!");
-        Camera_1.SetActive(true);
-        Camera_2.SetActive(false);
-    }
+    //public void FleeBattle()
+    //{
+    //    Debug.Log("You fled from the battle!");
+    //    Camera_1.SetActive(true);
+    //    Camera_2.SetActive(false);
+    //}
 
-    public void UseAbility()
-    {
-        Debug.Log("You used an ability!");
-    }
+    //public void UseAbility()
+    //{
+    //    Debug.Log("You used an ability!");
+    //}
 
-    void Cam_1()
-    {
-        Camera_1.SetActive(true);
-        Camera_2.SetActive(false);
-    }
+    //void Cam_1()
+    //{
+    //    Camera_1.SetActive(true);
+    //    Camera_2.SetActive(false);
+    //}
 
-    void Cam_2()
-    {
-        Camera_1.SetActive(false);
-        Camera_2.SetActive(true);
-    }
+    //void Cam_2()
+    //{
+    //    Camera_1.SetActive(false);
+    //    Camera_2.SetActive(true);
+    //}
 
-    private void CheckForEncounters()
-    {
-        if (Physics2D.OverlapCircle(transform.position, 0.2f, grassLayer) != null)
-        {
-            if (hasEncountered == false)
-            {
-                if (Random.Range(1, 201) <= 1)
-                {
-                    Debug.Log("Encountered an enemy!");
-                    hasEncountered = true;
-                    Cam_2();
-                }
-            }
-        }
-        else
-        {
-            hasEncountered = false;
-        }
-    }
+    //private void CheckForEncounters()
+    //{
+    //    if (Physics2D.OverlapCircle(transform.position, 0.2f, grassLayer) != null)
+    //    {
+    //        if (hasEncountered == false)
+    //        {
+    //            if (Random.Range(1, 201) <= 1)
+    //            {
+    //                Debug.Log("Encountered an enemy!");
+    //                hasEncountered = true;
+    //                Cam_2();
+    //            }
+    //        }
+    //    }
+    //    else
+    //    {
+    //        hasEncountered = false;
+    //    }
+    //}
 }
