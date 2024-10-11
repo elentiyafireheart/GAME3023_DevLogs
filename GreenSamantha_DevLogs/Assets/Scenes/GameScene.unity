@@ -220,7 +220,8 @@ PrefabInstance:
       value: FleeBattle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1186573416288255954, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
@@ -317,6 +318,11 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4022300500743634702, guid: 42d24a9269e8cb1469b163b1cedfcd62, type: 3}
   m_PrefabInstance: {fileID: 8147859480524692614}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1431437989 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9044454275772827405, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+  m_PrefabInstance: {fileID: 83564184}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2122461790
 GameObject:
@@ -621,6 +627,10 @@ PrefabInstance:
       propertyPath: Camera_2
       value: 
       objectReference: {fileID: 2784174211412576150}
+    - target: {fileID: 5066069981935848761, guid: 42d24a9269e8cb1469b163b1cedfcd62, type: 3}
+      propertyPath: Ability_3
+      value: 
+      objectReference: {fileID: 1431437989}
     - target: {fileID: 5066069981935848761, guid: 42d24a9269e8cb1469b163b1cedfcd62, type: 3}
       propertyPath: grassLayer.m_Bits
       value: 64

@@ -16,11 +16,14 @@ public class PlayerMovement : MonoBehaviour
     private Animator _animator; // exposes the animator
     public GameObject Camera_1;
     public GameObject Camera_2;
+    public GameObject Ability_3;
+    public float playerLevel = 1.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         Cam_1();
+        Ability_3.SetActive(false);
     }
 
     // Update is called once per frame
@@ -52,7 +55,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void UseAbility()
     {
-        Debug.Log("You used an ability!");
+        playerLevel += 1.0f;
+        Debug.Log("You used an ability and won the battle!");
+        Debug.Log("You leveled up to level " + playerLevel);
+        Camera_1.SetActive(true);
+        Camera_2.SetActive(false);
     }
 
     void Cam_1()
@@ -78,6 +85,10 @@ public class PlayerMovement : MonoBehaviour
                     Debug.Log("Encountered an enemy!");
                     hasEncountered = true;
                     Cam_2();
+                    if (playerLevel >= 2)
+                    {
+                        Ability_3.SetActive(true);
+                    }
                 }
             }
         }
