@@ -139,6 +139,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UseAbility
       objectReference: {fileID: 0}
+    - target: {fileID: 1233976678228383048, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 1233976678228383048, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+      propertyPath: m_isOrthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233976678228383048, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 1947932206338296019, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
       propertyPath: m_Name
       value: BattleSystemPrefab
@@ -187,6 +199,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3677523031703024624, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4856738275564093776, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 287
+      objectReference: {fileID: 0}
+    - target: {fileID: 4856738275564093776, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -197
+      objectReference: {fileID: 0}
     - target: {fileID: 4972121400759450593, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -194,6 +218,14 @@ PrefabInstance:
     - target: {fileID: 4972121400759450593, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UseAbility
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409167046358504262, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409167046358504262, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -197
       objectReference: {fileID: 0}
     - target: {fileID: 6073954111206883636, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -203,6 +235,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UseAbility
       objectReference: {fileID: 0}
+    - target: {fileID: 6897557689026409545, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 6897557689026409545, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -161
+      objectReference: {fileID: 0}
     - target: {fileID: 8166310112965564771, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -210,6 +250,14 @@ PrefabInstance:
     - target: {fileID: 8166310112965564771, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UseAbility
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443079150188116895, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 288
+      objectReference: {fileID: 0}
+    - target: {fileID: 8443079150188116895, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -161
       objectReference: {fileID: 0}
     - target: {fileID: 8606120808527737552, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -218,6 +266,14 @@ PrefabInstance:
     - target: {fileID: 8606120808527737552, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: FleeBattle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8952000390332703573, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+      propertyPath: stringArray.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8952000390332703573, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+      propertyPath: stringArray.Array.data[3]
+      value: 'all of our text '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -270,7 +326,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 5794ee7beda61aace7c20cd400000000b796dd3641131116
