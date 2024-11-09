@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public bool _isWalking;
     public int _walkDirection;
     public LayerMask grassLayer;
+    public LayerMask specialGrassLayer;
     public bool hasEncountered;
     [SerializeField]
     private Animator _animator; // exposes the animator
@@ -18,6 +19,14 @@ public class PlayerMovement : MonoBehaviour
     public GameObject Camera_2;
     public GameObject Ability_3;
     public float playerLevel = 1.0f;
+    [SerializeField]
+    public float playerHealth = 100;
+
+    public GameObject _enemyTemplatePrefab;
+    public GameObject _enemySpecialPrefab;
+
+    GameObject templateEnemyObj;
+    GameObject specialEnemyObj;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.hasChanged = false;
+
         // horizontal parameter
         _animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
         _animator.SetFloat("Vertical", Input.GetAxis("Vertical"));
@@ -43,23 +54,10 @@ public class PlayerMovement : MonoBehaviour
         // multiplying by deltaTime helps smooth out the movement
         // multiply by speed to make it move faster
 
-        CheckForEncounters();
-    }
-
-    public void FleeBattle()
-    {
-        Debug.Log("You fled from the battle!");
-        Camera_1.SetActive(true);
-        Camera_2.SetActive(false);
-    }
-
-    public void UseAbility()
-    {
-        playerLevel += 1.0f;
-        Debug.Log("You used an ability and won the battle!");
-        Debug.Log("You leveled up to level " + playerLevel);
-        Camera_1.SetActive(true);
-        Camera_2.SetActive(false);
+        if (transform.hasChanged)
+        {
+            CheckForEncounters();
+        }
     }
 
     void Cam_1()
@@ -75,15 +73,18 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void CheckForEncounters()
-    {
+    { 
+        // Check for common enemy types on common grass layer
         if (Physics2D.OverlapCircle(transform.position, 0.2f, grassLayer) != null)
         {
-            if (hasEncountered == false)
+            if (Random.Range(1, 101) <= 1)
             {
-                if (Random.Range(1, 201) <= 1)
+                if (hasEncountered == false)
                 {
-                    Debug.Log("Encountered an enemy!");
                     hasEncountered = true;
+                    _speed = 0.0f;
+                    templateEnemyObj = Instantiate(_enemyTemplatePrefab);
+                    Debug.Log("Encountered an enemy!");
                     Cam_2();
                     if (playerLevel >= 2)
                     {
@@ -96,5 +97,61 @@ public class PlayerMovement : MonoBehaviour
         {
             hasEncountered = false;
         }
+
+        // Check for special enemy types on special grass layer
+        if (Physics2D.OverlapCircle(transform.position, 0.2f, specialGrassLayer) != null)
+        {
+            if (Random.Range(1, 101) <= 1)
+            {
+                if (hasEncountered == false)
+                {
+                    hasEncountered = true;
+                    _speed = 0.0f;
+                    specialEnemyObj = Instantiate(_enemySpecialPrefab);
+                    Debug.Log("Encountered an enemy!");
+                    Cam_2();
+                    if (playerLevel >= 2)
+                    {
+                        Ability_3.SetActive(true);
+                    }
+                }
+            }
+        }
+        else
+        {
+            hasEncountered = false;
+        }
+    }
+
+    public void FleeBattle()
+    {
+        Debug.Log("You fled from the battle!");
+
+        // Switch cameras
+        Camera_1.SetActive(true);
+        Camera_2.SetActive(false);
+
+        _speed = 2.0f;
+
+        // Destroy the enemy prefabs
+        Destroy(templateEnemyObj);
+        Destroy(specialEnemyObj);
+    }
+
+    public void UseAbility()
+    {
+        playerLevel += 1.0f;
+        Debug.Log("You used an ability and won the battle!");
+        Debug.Log("You leveled up to level " + playerLevel);
+
+        _speed = 2.0f;
+
+        // Switch cameras
+        Camera_1.SetActive(true);
+        Camera_2.SetActive(false);
+
+        // Destroy the enemy prefabs
+        Destroy(templateEnemyObj);
+        Destroy(specialEnemyObj);
     }
 }
