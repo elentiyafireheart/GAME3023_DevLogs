@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4177366550337737895}
   m_Layer: 0
   m_Name: PotionBlue
-  m_TagString: Untagged
+  m_TagString: BluePotionItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

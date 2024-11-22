@@ -1153,6 +1153,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PotionRed
       objectReference: {fileID: 0}
+    - target: {fileID: 3060445368730669908, guid: 8c7cd81c79f4e6f428d2bf72888f2297, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5097451189080952020, guid: 8c7cd81c79f4e6f428d2bf72888f2297, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
@@ -1191,6 +1195,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5097451189080952020, guid: 8c7cd81c79f4e6f428d2bf72888f2297, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157914884782470795, guid: 8c7cd81c79f4e6f428d2bf72888f2297, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1251,9 +1259,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1555783034112934299, guid: 9bcee765d3888a549967ac56b3a800f9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1580839109793445182, guid: 9bcee765d3888a549967ac56b3a800f9, type: 3}
       propertyPath: m_Name
       value: PotionGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580839109793445182, guid: 9bcee765d3888a549967ac56b3a800f9, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1426,6 +1442,10 @@ PrefabInstance:
       value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 5066069981935848761, guid: 42d24a9269e8cb1469b163b1cedfcd62, type: 3}
+      propertyPath: playerMaxInventory
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5066069981935848761, guid: 42d24a9269e8cb1469b163b1cedfcd62, type: 3}
       propertyPath: _enemySpecialPrefab
       value: 
       objectReference: {fileID: 7804417126092123338, guid: 79acaccd2779d654aaa994899116abe9, type: 3}
@@ -1436,6 +1456,10 @@ PrefabInstance:
     - target: {fileID: 5066069981935848761, guid: 42d24a9269e8cb1469b163b1cedfcd62, type: 3}
       propertyPath: specialGrassLayer.m_Bits
       value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160371532417589020, guid: 42d24a9269e8cb1469b163b1cedfcd62, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1493,6 +1517,10 @@ PrefabInstance:
     - target: {fileID: 2058920152786966676, guid: da953ee263a3f204f8d58c374027277b, type: 3}
       propertyPath: m_Name
       value: PotionBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058920152786966676, guid: da953ee263a3f204f8d58c374027277b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

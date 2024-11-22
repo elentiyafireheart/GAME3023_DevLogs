@@ -10,8 +10,10 @@ public class PlayerMovement : MonoBehaviour
     public float _speed = 2.0f; // increase speed
     public bool _isWalking;
     public int _walkDirection;
+
     public LayerMask grassLayer;
     public LayerMask specialGrassLayer;
+
     public bool hasEncountered;
     [SerializeField]
     private Animator _animator; // exposes the animator
@@ -21,6 +23,13 @@ public class PlayerMovement : MonoBehaviour
     public float playerLevel = 1.0f;
     [SerializeField]
     public float playerHealth = 100;
+    public int playerInventory = 0;
+    public int bluePotionsInventory = 0;
+    public int greenPotionsInventory = 0;
+    public int redPotionsInventory = 0;
+
+    [SerializeField]
+    public int playerMaxInventory;
 
     public GameObject _enemyTemplatePrefab;
     public GameObject _enemySpecialPrefab;
@@ -120,6 +129,31 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             hasEncountered = false;
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collisionInfo)
+    {
+        if (collisionInfo.collider.tag == "BluePotionItem")
+        {
+            Destroy(collisionInfo.gameObject);
+            Debug.Log("Collected 1 BLUE POTION");
+            playerInventory += 1;
+            bluePotionsInventory += 1;
+        }
+        if (collisionInfo.collider.tag == "GreenPotionItem")
+        {
+            Destroy(collisionInfo.gameObject);
+            Debug.Log("Collected 1 GREEN POTION");
+            playerInventory += 1;
+            greenPotionsInventory += 1;
+        }
+        if (collisionInfo.collider.tag == "RedPotionItem")
+        {
+            Destroy(collisionInfo.gameObject);
+            Debug.Log("Collected 1 RED POTION");
+            playerInventory += 1;
+            redPotionsInventory += 1;
         }
     }
 
