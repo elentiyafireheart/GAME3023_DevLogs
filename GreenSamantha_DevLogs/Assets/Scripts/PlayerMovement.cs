@@ -7,7 +7,7 @@ using TMPro;
 
 // item sprites from https://opengameart.org/node/113951
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IDataPersistence
 {
 
     public float _speed = 2.0f; // increase speed
@@ -25,14 +25,15 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask grassLayer;
     public LayerMask specialGrassLayer;
 
-    // PLAYER
-    [SerializeField]
-    public float playerHealth;
+    // PLAYER DATA (SAVED)
+    public float playerHealth = 100.0f;
     public float playerLevel = 1.0f;
     public int playerInventory = 0;
     public int bluePotionsInventory = 0;
     public int greenPotionsInventory = 0;
     public int redPotionsInventory = 0;
+    public Vector3 playerSavedPosition;
+
     [SerializeField]
     public int playerMaxInventory;
 
@@ -231,5 +232,27 @@ public class PlayerMovement : MonoBehaviour
         // Destroy the enemy prefabs
         Destroy(templateEnemyObj);
         Destroy(specialEnemyObj);
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.playerHealth = data.playerHealth;
+        this.playerInventory = data.playerInventory;
+        this.playerLevel = data.playerLevel;
+        this.playerSavedPosition = data.playerSavedPosition;
+        this.redPotionsInventory = data.redPotionsInventory;
+        this.greenPotionsInventory = data.greenPotionsInventory;
+        this.bluePotionsInventory = data.bluePotionsInventory;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.playerHealth = this.playerHealth;
+        data.playerInventory = this.playerInventory;
+        data.playerLevel = this.playerLevel;
+        data.playerSavedPosition = this.playerSavedPosition;
+        data.redPotionsInventory = this.redPotionsInventory;
+        data.greenPotionsInventory = this.greenPotionsInventory;
+        data.bluePotionsInventory = this.bluePotionsInventory;
     }
 }

@@ -46,6 +46,11 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
     }
 
+    public void SaveGame()
+    {
+        DataPersistenceManager.instance.SaveGame();
+    }
+
     public void ReturnToMenu()
     {
         SceneManager.LoadScene("MainMenuScene");
