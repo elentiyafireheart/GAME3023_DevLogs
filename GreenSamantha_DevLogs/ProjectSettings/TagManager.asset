@@ -8,6 +8,7 @@ TagManager:
   - BluePotionItem
   - GreenPotionItem
   - RedPotionItem
+  - AchievementList
   layers:
   - Default
   - TransparentFX
