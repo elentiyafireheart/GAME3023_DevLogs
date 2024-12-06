@@ -1,0 +1,8 @@
+playerHealth=100
+playerLevel=1
+playerInventory=0
+redPotionsInventory=0
+greenPotionsInventory=0
+bluePotionsInventory=0
+playerXPosition=0
+playerYPosition=0

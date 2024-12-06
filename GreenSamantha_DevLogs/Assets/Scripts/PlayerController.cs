@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+using System.IO;
+using Unity.VisualScripting;
 
 // sprite sheet from https://pipoya.itch.io/pipoya-free-rpg-character-sprites-32x32
 
 // item sprites from https://opengameart.org/node/113951
 
-public class PlayerMovement : MonoBehaviour, IDataPersistence
+public class PlayerController : MonoBehaviour
 {
 
     public float _speed = 2.0f; // increase speed
@@ -25,15 +28,17 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     public LayerMask grassLayer;
     public LayerMask specialGrassLayer;
 
-    // PLAYER DATA (SAVED)
+    // PLAYER GAME DATA (SAVED)
     public float playerHealth = 100.0f;
     public float playerLevel = 1.0f;
     public int playerInventory = 0;
     public int bluePotionsInventory = 0;
     public int greenPotionsInventory = 0;
     public int redPotionsInventory = 0;
-    public Vector3 playerSavedPosition;
+    public float playerXPosition = 0.0f;
+    public float playerYPosition = 0.0f;
 
+    // MAXIMUM INVENTORY SIZE (SET IN EDITOR)
     [SerializeField]
     public int playerMaxInventory;
 
@@ -51,6 +56,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     // Start is called before the first frame update
     void Start()
     {
+        LoadData();
         Cam_1();
         Ability_3.SetActive(false);
 
@@ -111,7 +117,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         // Check for common enemy types on common grass layer
         if (Physics2D.OverlapCircle(transform.position, 0.2f, grassLayer) != null)
         {
-            if (Random.Range(1, 101) <= 1)
+            if (UnityEngine.Random.Range(1, 101) <= 1)
             {
                 if (hasEncountered == false)
                 {
@@ -135,7 +141,7 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         // Check for special enemy types on special grass layer
         if (Physics2D.OverlapCircle(transform.position, 0.2f, specialGrassLayer) != null)
         {
-            if (Random.Range(1, 101) <= 1)
+            if (UnityEngine.Random.Range(1, 101) <= 1)
             {
                 if (hasEncountered == false)
                 {
@@ -234,25 +240,130 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
         Destroy(specialEnemyObj);
     }
 
-    public void LoadData(GameData data)
+    public void SaveData()
     {
-        this.playerHealth = data.playerHealth;
-        this.playerInventory = data.playerInventory;
-        this.playerLevel = data.playerLevel;
-        this.playerSavedPosition = data.playerSavedPosition;
-        this.redPotionsInventory = data.redPotionsInventory;
-        this.greenPotionsInventory = data.greenPotionsInventory;
-        this.bluePotionsInventory = data.bluePotionsInventory;
+        // Get player position
+        playerXPosition = transform.position.x;
+        playerYPosition = transform.position.y;
+
+        // Get file path
+        string path = "Assets/Resources/GameData.txt";
+
+        // Overwrite saved data
+        StreamWriter writer = new StreamWriter(path, false);
+        writer.WriteLine("playerHealth=" + playerHealth);
+        writer.WriteLine("playerLevel=" + playerLevel);
+        writer.WriteLine("playerInventory=" + playerInventory);
+        writer.WriteLine("redPotionsInventory=" + redPotionsInventory);
+        writer.WriteLine("greenPotionsInventory=" + greenPotionsInventory);
+        writer.WriteLine("bluePotionsInventory=" + bluePotionsInventory);
+        writer.WriteLine("playerXPosition=" + playerXPosition);
+        writer.WriteLine("playerYPosition=" + playerYPosition);
+        writer.Close();
     }
 
-    public void SaveData(ref GameData data)
+    public void LoadData()
     {
-        data.playerHealth = this.playerHealth;
-        data.playerInventory = this.playerInventory;
-        data.playerLevel = this.playerLevel;
-        data.playerSavedPosition = this.playerSavedPosition;
-        data.redPotionsInventory = this.redPotionsInventory;
-        data.greenPotionsInventory = this.greenPotionsInventory;
-        data.bluePotionsInventory = this.bluePotionsInventory;
+        // Get file path
+        string path = "Assets/Resources/GameData.txt";
+
+        if (File.Exists(path)) // If save file exists
+        {
+            StreamReader reader = new StreamReader(path);
+            while (!reader.EndOfStream)
+            {
+                string line = reader.ReadLine();
+                Debug.Log("Read line: " + line);
+                string[] keyValue = line.Split('=');
+                if (keyValue.Length == 2)
+                {
+                    string key = keyValue[0].Trim();
+                    string value = keyValue[1].Trim();
+
+                    if (key == "playerHealth")
+                    {
+                        if (float.TryParse(value, out float parsedValue))
+                        {
+                            playerHealth = parsedValue;
+                        }
+                    }
+                    else if (key == "playerLevel")
+                    {
+                        if (float.TryParse(value, out float parsedValue))
+                        {
+                            playerLevel = parsedValue;
+                        }
+                    }
+                    else if (key == "playerInventory")
+                    {
+                        if (int.TryParse(value, out int parsedValue))
+                        {
+                            playerInventory = parsedValue;
+                        }
+                    }
+                    else if (key == "redPotionsInventory")
+                    {
+                        if (int.TryParse(value, out int parsedValue))
+                        {
+                            redPotionsInventory = parsedValue;
+                        }
+                    }
+                    else if (key == "greenPotionsInventory")
+                    {
+                        if (int.TryParse(value, out int parsedValue))
+                        {
+                            greenPotionsInventory = parsedValue;
+                        }
+                    }
+                    else if (key == "bluePotionsInventory")
+                    {
+                        if (int.TryParse(value, out int parsedValue))
+                        {
+                            bluePotionsInventory = parsedValue;
+                        }
+                    }
+                    else if (key == "playerXPosition")
+                    {
+                        if (float.TryParse(value, out float parsedValue))
+                        {
+                            playerXPosition = parsedValue;
+                        }
+                    }
+                    else if (key == "playerYPosition")
+                    {
+                        if (float.TryParse(value, out float parsedValue))
+                        {
+                            playerYPosition = parsedValue;
+                        }
+                    }
+                }
+            }
+            reader.Close();
+        }
+        else // If save file doesn't exist or can't be found, log error
+        {
+            Debug.LogError("GameData file not found: " + path);
+        }
+
+        // Set player's current position to position loaded from saved data
+        transform.position = new Vector3(playerXPosition, playerYPosition, 0.0f);
+    }
+
+    public void NewData()
+    {
+        // Get file path
+        string path = "Assets/Resources/GameData.txt";
+
+        // Overwrite saved data with default values
+        StreamWriter writer = new StreamWriter(path, false);
+        writer.WriteLine("playerHealth=100");
+        writer.WriteLine("playerLevel=1");
+        writer.WriteLine("playerInventory=0");
+        writer.WriteLine("redPotionsInventory=0");
+        writer.WriteLine("greenPotionsInventory=0");
+        writer.WriteLine("bluePotionsInventory=0");
+        writer.WriteLine("playerXPosition=0");
+        writer.WriteLine("playerYPosition=0");
+        writer.Close();
     }
 }
