@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour
     public TMP_Text _infoText;
     public TMP_Text _inventoryText;
 
+    public ParticleSystem _bloodSplash;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,11 +64,16 @@ public class PlayerController : MonoBehaviour
 
         _promptText.enabled = false;
         _infoText.enabled = false;
+
+        _bloodSplash = transform.GetChild(0).GetComponentInChildren<ParticleSystem>();
+        _bloodSplash.Stop();
     }
 
     // Update is called once per frame
     void Update()
     {
+        _bloodSplash.transform.position = new Vector3(-24.0f, 5.0f, 0.0f);
+
         transform.hasChanged = false;
 
         // horizontal parameter
@@ -225,9 +232,17 @@ public class PlayerController : MonoBehaviour
 
     public void UseAbility()
     {
+        _bloodSplash.Play();
         playerLevel += 1.0f;
         Debug.Log("You used an ability and won the battle!");
         Debug.Log("You leveled up to level " + playerLevel);
+
+        StartCoroutine(KillEnemy());
+    }
+
+    IEnumerator KillEnemy()
+    {
+        yield return new WaitForSecondsRealtime(2);
 
         _speed = 2.0f;
 
@@ -238,6 +253,7 @@ public class PlayerController : MonoBehaviour
         // Destroy the enemy prefabs
         Destroy(templateEnemyObj);
         Destroy(specialEnemyObj);
+        _bloodSplash.Stop();
     }
 
     public void SaveData()
