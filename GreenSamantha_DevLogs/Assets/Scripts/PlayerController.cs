@@ -5,6 +5,7 @@ using TMPro;
 using System;
 using System.IO;
 using Unity.VisualScripting;
+using UnityEngine.UI;
 
 // sprite sheet from https://pipoya.itch.io/pipoya-free-rpg-character-sprites-32x32
 
@@ -23,6 +24,12 @@ public class PlayerController : MonoBehaviour
     public GameObject Camera_1;
     public GameObject Camera_2;
     public GameObject Ability_3;
+
+    [SerializeField] private CanvasGroup gameUI;
+    [SerializeField] private CanvasGroup battleUI;
+
+    [SerializeField] private bool fadeIn = false;
+    [SerializeField] private bool fadeOut = false;
 
     // LAYERS
     public LayerMask grassLayer;
@@ -74,6 +81,8 @@ public class PlayerController : MonoBehaviour
     {
         _bloodSplash.transform.position = new Vector3(-24.0f, 5.0f, 0.0f);
 
+        CheckForFade();
+
         transform.hasChanged = false;
 
         // horizontal parameter
@@ -107,16 +116,75 @@ public class PlayerController : MonoBehaviour
         _inventoryText.text = "Inventory: " + playerInventory + "/" + playerMaxInventory;
     }
 
+    private void CheckForFade()
+    {
+        if (fadeIn)
+        {
+            if (gameUI.alpha < 1)
+            {
+                gameUI.alpha += Time.deltaTime;
+                if (gameUI.alpha >= 1)
+                {
+                    fadeIn = false;
+                }
+            }
+            if (battleUI.alpha < 1)
+            {
+                battleUI.alpha += Time.deltaTime;
+                if (battleUI.alpha >= 1)
+                {
+                    fadeIn = false;
+                }
+            }
+        }
+
+        if (fadeOut)
+        {
+            if (gameUI.alpha >= 0)
+            {
+                gameUI.alpha -= Time.deltaTime;
+                if (gameUI.alpha == 0)
+                {
+                    fadeOut = false;
+                }
+            }
+            if (battleUI.alpha >= 0)
+            {
+                battleUI.alpha -= Time.deltaTime;
+                if (battleUI.alpha == 0)
+                {
+                    fadeOut = false;
+                }
+            }
+        }
+    }
+
     void Cam_1()
     {
-        Camera_1.SetActive(true);
-        Camera_2.SetActive(false);
+        StartCoroutine(fadeToCam1());
     }
 
     void Cam_2()
     {
+        StartCoroutine(fadeToCam2());
+    }
+
+    IEnumerator fadeToCam1()
+    {
+        fadeIn = true;
+        yield return new WaitForSeconds(1);
+        Camera_1.SetActive(true);
+        Camera_2.SetActive(false);
+        fadeOut = true;
+    }
+
+    IEnumerator fadeToCam2()
+    {
+        fadeIn = true;
+        yield return new WaitForSeconds(1);
         Camera_1.SetActive(false);
         Camera_2.SetActive(true);
+        fadeOut = true;
     }
 
     private void CheckForEncounters()
@@ -242,13 +310,12 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator KillEnemy()
     {
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSeconds(2);
 
         _speed = 2.0f;
 
         // Switch cameras
-        Camera_1.SetActive(true);
-        Camera_2.SetActive(false);
+        Cam_1();
 
         // Destroy the enemy prefabs
         Destroy(templateEnemyObj);
@@ -381,5 +448,15 @@ public class PlayerController : MonoBehaviour
         writer.WriteLine("playerXPosition=0");
         writer.WriteLine("playerYPosition=0");
         writer.Close();
+    }
+
+    public void ShowFade()
+    {
+        fadeIn = true;
+    }
+
+    public void HideFade()
+    {
+        fadeOut = true;
     }
 }
