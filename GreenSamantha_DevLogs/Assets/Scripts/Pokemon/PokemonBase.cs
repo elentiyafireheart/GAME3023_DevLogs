@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 
@@ -11,8 +12,8 @@ public class PokemonBase : ScriptableObject
     [TextArea]
     [SerializeField] string description;
 
-    [SerializeField] Sprite frontSprite;
-    [SerializeField] Sprite backSprite;
+    [SerializeField] public Sprite frontSprite;
+    [SerializeField] public Sprite backSprite;
 
     [SerializeField] PokemonType type1;
     [SerializeField] PokemonType type2;

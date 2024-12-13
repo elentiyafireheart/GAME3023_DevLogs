@@ -12,15 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936afdee4fce2fb4ea1dedd7bc6abaaa, type: 3}
   m_Name: Bulbasaur
   m_EditorClassIdentifier: 
-  pokemonName: 
+  pokemonName: Bulbasaur
   description: 
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
-  type1: 0
-  type2: 0
-  maxHP: 0
-  attack: 0
-  defense: 0
-  spAttack: 0
-  spDefense: 0
-  speed: 0
+  frontSprite: {fileID: 21300000, guid: 19e31103b69ba2d41a15742bb9ec772b, type: 3}
+  backSprite: {fileID: 21300000, guid: 7261f313175768342b8e74356bc7ee6b, type: 3}
+  type1: 5
+  type2: 8
+  maxHP: 45
+  attack: 49
+  defense: 49
+  spAttack: 65
+  spDefense: 65
+  speed: 45
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 4ae6e40183708e64d82987c63be7be71, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 04acd2c4e77c7ed4ea1f792cfc0a656b, type: 2}
+    level: 4
+  - moveBase: {fileID: 11400000, guid: 23d5b466947d5684dbf5a470c970697a, type: 2}
+    level: 7

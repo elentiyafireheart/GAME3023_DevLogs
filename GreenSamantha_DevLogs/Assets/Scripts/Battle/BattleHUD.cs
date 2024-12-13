@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class BattleHUD : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] public Text nameText;
+    [SerializeField] public Text levelText;
+    [SerializeField] public HPBar hpBar;
 
-    // Update is called once per frame
-    void Update()
+    public void SetData(Pokemon pokemon)
     {
-        
+        nameText.text = pokemon.Base.Name;
+        levelText.text = "Lvl. " + pokemon.Level;
+        hpBar.SetHP((float)pokemon.HP/pokemon.MaxHP);
     }
 }
