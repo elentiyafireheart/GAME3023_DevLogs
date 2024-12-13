@@ -9,15 +9,15 @@ public class BattleUnit : MonoBehaviour
     [SerializeField] public int level;
     [SerializeField] public bool isPlayerUnit;
 
-    public Pokemon pokemon { get; set; }
+    public Pokemon Pokemon { get; set; }
 
     public void Setup()
     {
-        pokemon = new Pokemon(_base, level);
+        Pokemon = new Pokemon(_base, level);
 
         if (isPlayerUnit)
-            GetComponent<Image>().sprite = pokemon.Base.backSprite;
+            GetComponent<Image>().sprite = Pokemon.Base.BackSprite;
         else
-            GetComponent<Image>().sprite = pokemon.Base.frontSprite;
+            GetComponent<Image>().sprite = Pokemon.Base.FrontSprite;
     }
 }
