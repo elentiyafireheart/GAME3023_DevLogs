@@ -6,16 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    PlayerController playerController;
+
+    public void Start()
+    {
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+    }
+
     public void ContinueGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        DataPersistenceManager.instance.LoadGame();
     }
 
     public void NewGame()
     {
+        playerController.NewData();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        DataPersistenceManager.instance.NewGame();
     }
 
     public void PlayCredits()

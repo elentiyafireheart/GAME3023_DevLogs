@@ -10,9 +10,12 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     public bool isPaused;
 
+    PlayerController playerController;
+
     // Start is called before the first frame update
     void Start()
     {
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         pauseMenu.SetActive(false);
     }
 
@@ -48,7 +51,7 @@ public class PauseMenu : MonoBehaviour
 
     public void SaveGame()
     {
-        DataPersistenceManager.instance.SaveGame();
+        playerController.SaveData();
     }
 
     public void ReturnToMenu()
