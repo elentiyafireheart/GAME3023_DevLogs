@@ -13,8 +13,8 @@ public class BattleDialog : MonoBehaviour
     [SerializeField] public GameObject moveSelector;
     [SerializeField] public GameObject moveDetails;
 
-    [SerializeField] private List<Text> actionTexts;
-    [SerializeField] private List<Text> moveTexts;
+    [SerializeField] public List<Text> actionTexts;
+    [SerializeField] public List<Text> moveTexts;
 
     [SerializeField] private Text ppText;
     [SerializeField] private Text typeText;
@@ -39,12 +39,12 @@ public class BattleDialog : MonoBehaviour
         dialogText.enabled = enabled;
     }
 
-    public void EnableActionSelector(bool enabled)
+    public void EnableActionSelecton(bool enabled)
     {
         actionSelector.SetActive(enabled);
     }
 
-    public void EnableMoveSelector(bool enabled)
+    public void EnableMoveSelecton(bool enabled)
     {
         moveSelector.SetActive(enabled);
         moveDetails.SetActive(enabled);
@@ -80,7 +80,7 @@ public class BattleDialog : MonoBehaviour
         for (int i = 0; i < moveTexts.Count; i++)
         {
             if (i < moves.Count)
-                moveTexts[i].text = moves[i].Base.Name;
+                moveTexts[i].text = moves[i].Pokemon.Base.Name;
             else
             {
                 moveTexts[i].text = "-";
