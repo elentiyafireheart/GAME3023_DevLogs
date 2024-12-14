@@ -62,6 +62,9 @@ public class PlayerController : MonoBehaviour
 
     public ParticleSystem _bloodSplash;
 
+    [SerializeField] public AudioSource overworldMusic;
+    [SerializeField] public AudioSource battleMusic;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -162,11 +165,15 @@ public class PlayerController : MonoBehaviour
     void Cam_1()
     {
         StartCoroutine(fadeToCam1());
+        overworldMusic.Play();
+        battleMusic.Stop();
     }
 
     void Cam_2()
     {
         StartCoroutine(fadeToCam2());
+        overworldMusic.Stop();
+        battleMusic.Play();
     }
 
     IEnumerator fadeToCam1()
