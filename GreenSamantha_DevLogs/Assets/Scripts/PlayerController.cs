@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
 
         if (fadeOut)
         {
-            if (gameUI.alpha >= 0)
+            if (gameUI.alpha > 0)
             {
                 gameUI.alpha -= Time.deltaTime;
                 if (gameUI.alpha == 0)
@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour
                     fadeOut = false;
                 }
             }
-            if (battleUI.alpha >= 0)
+            if (battleUI.alpha > 0)
             {
                 battleUI.alpha -= Time.deltaTime;
                 if (battleUI.alpha == 0)
@@ -182,8 +182,8 @@ public class PlayerController : MonoBehaviour
     {
         fadeIn = true;
         yield return new WaitForSeconds(1);
-        Camera_1.SetActive(false);
         Camera_2.SetActive(true);
+        Camera_1.SetActive(false);
         fadeOut = true;
     }
 
@@ -288,8 +288,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("You fled from the battle!");
 
         // Switch cameras
-        Camera_1.SetActive(true);
-        Camera_2.SetActive(false);
+        Cam_1();
 
         _speed = 2.0f;
 

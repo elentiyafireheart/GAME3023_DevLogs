@@ -339,6 +339,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 204806694}
+    - target: {fileID: 1561006198651132004, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561006198651132004, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+      propertyPath: m_IgnoreParentGroups
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839065100166541090, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1947932206338296019, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
       propertyPath: m_Name
       value: BattleSystemPrefab
@@ -389,7 +401,7 @@ PrefabInstance:
       objectReference: {fileID: 204806694}
     - target: {fileID: 5300989949806838451, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5515940844344728668, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
       propertyPath: m_SizeDelta.x
@@ -9089,6 +9101,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!225 &1278544025 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 1561006198651132004, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+  m_PrefabInstance: {fileID: 83564184}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1285453337 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4022300500743634702, guid: 42d24a9269e8cb1469b163b1cedfcd62, type: 3}
@@ -17687,7 +17704,7 @@ PrefabInstance:
     - target: {fileID: 5066069981935848761, guid: 42d24a9269e8cb1469b163b1cedfcd62, type: 3}
       propertyPath: battleUI
       value: 
-      objectReference: {fileID: 1050140935}
+      objectReference: {fileID: 1278544025}
     - target: {fileID: 5066069981935848761, guid: 42d24a9269e8cb1469b163b1cedfcd62, type: 3}
       propertyPath: Ability_3
       value: 
