@@ -134,10 +134,20 @@ public enum PokemonType
 
 public class TypeChart
 {
-    float[][] chart =
+    static float[][] chart =
     {
         /*NORMAL*/ new float[] {1f,1f,1f},
-        /*FIRE*/ new float[] {1f,1f,1f},
-        /*WATER*/ new float[] {1f,1f,1f}
+        /*FIRE*/ new float[] {1f,0.5f,0.5f},
+        /*WATER*/ new float[] {1f,2f,0.5f}
     };
+
+    public static float GetEffectiveness(PokemonType attackType, PokemonType defenseType)
+    {
+        if (attackType == PokemonType.None || defenseType == PokemonType.None)
+            return 1;
+
+        int row = (int)attackType - 1;
+        int col = (int)defenseType - 1;
+        return chart[row][col];
+    }
 }
