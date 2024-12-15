@@ -1,0 +1,8 @@
+How to Play:
+
+WASD for Movement
+I for Inventory access
+
+For battle selection:
+Arrow keys to pick.
+Z key to make your selection.
