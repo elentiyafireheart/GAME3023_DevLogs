@@ -131,3 +131,13 @@ public enum PokemonType
     Dragon,
     Fairy
 }
+
+public class TypeChart
+{
+    float[][] chart =
+    {
+        /*NORMAL*/ new float[] {1f,1f,1f},
+        /*FIRE*/ new float[] {1f,1f,1f},
+        /*WATER*/ new float[] {1f,1f,1f}
+    };
+}
