@@ -470,6 +470,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3344459856135225630, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -207
+      objectReference: {fileID: 0}
     - target: {fileID: 4972121400759450593, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -10623,6 +10627,9 @@ MonoBehaviour:
   enemyUnit: {fileID: 354983897}
   enemyHUD: {fileID: 798503343}
   dialogBox: {fileID: 1592928571}
+  state: 0
+  currentAction: 0
+  currentMove: 0
 --- !u!1 &1592928569 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4125357508531519377, guid: 29ff5ac0a5a80554ca7d8a1520ada648, type: 3}
