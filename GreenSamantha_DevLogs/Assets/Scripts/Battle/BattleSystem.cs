@@ -22,8 +22,10 @@ public class BattleSystem : MonoBehaviour
 
     [SerializeField] public BattleDialog dialogBox;
 
-    private BattleState state;
-    private int currentAction;
+    public BattleState state;
+
+    public int currentAction;
+    public int currentMove;
 
     private void Start()
     {
@@ -38,9 +40,9 @@ public class BattleSystem : MonoBehaviour
         enemyUnit.Setup();
         enemyHUD.SetData(enemyUnit.Pokemon);
 
-        dialogBox.SetMoveName(playerUnit.Pokemon.Moves);
+        dialogBox.SetMoveNames(playerUnit.Pokemon.Moves);
 
-        yield return dialogBox.TypeDialog($"A wild {enemyUnit.Pokemon.Base.Name} APPEARED!");
+        yield return dialogBox.TypeDialog($"A wild {enemyUnit.Pokemon.Base.Name} appeared!");
         yield return new WaitForSeconds(1f);
 
         PlayerAction();
@@ -50,15 +52,15 @@ public class BattleSystem : MonoBehaviour
     {
         state = BattleState.PlayerAction;
         StartCoroutine(dialogBox.TypeDialog("Choose an action"));
-        dialogBox.EnableActionSelecton(true);
+        dialogBox.EnableActionSelection(true);
     }
 
     void PlayerMove()
     {
         state = BattleState.PlayerMove;
-        dialogBox.EnableActionSelecton(false);
+        dialogBox.EnableActionSelection(false);
         dialogBox.EnableDialogText(false);
-        dialogBox.EnableMoveSelecton(true);
+        dialogBox.EnableMoveSelection(true);
     }
 
     public IEnumerator PerformPlayerMove()
@@ -66,7 +68,7 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.Busy;
 
         var move = playerUnit.Pokemon.Moves[currentMove];
-        yield return dialogBox.TypeDialog($"{playerUnit.Pokemon.Base.Name} used {move.Pokemon.Base.Name}");
+        yield return dialogBox.TypeDialog($"{playerUnit.Pokemon.Base.Name} used {move.Base.Name}");
         yield return new WaitForSeconds(1f);
 
         bool isFainted = enemyUnit.Pokemon.TakeDamage(move, playerUnit.Pokemon);

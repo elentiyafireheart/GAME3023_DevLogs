@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BattleDialog : MonoBehaviour
 {
     [SerializeField] public int lettersPerSecond;
-    [SerializeField] private Color highlightedColor;
+    [SerializeField] public Color highlightedColor;
 
     [SerializeField] public Text dialogText;
     [SerializeField] public GameObject actionSelector;
@@ -16,8 +16,8 @@ public class BattleDialog : MonoBehaviour
     [SerializeField] public List<Text> actionTexts;
     [SerializeField] public List<Text> moveTexts;
 
-    [SerializeField] private Text ppText;
-    [SerializeField] private Text typeText;
+    [SerializeField] public Text ppText;
+    [SerializeField] public Text typeText;
 
     public void SetDialog(string dialog)
     {
@@ -39,12 +39,12 @@ public class BattleDialog : MonoBehaviour
         dialogText.enabled = enabled;
     }
 
-    public void EnableActionSelecton(bool enabled)
+    public void EnableActionSelection(bool enabled)
     {
         actionSelector.SetActive(enabled);
     }
 
-    public void EnableMoveSelecton(bool enabled)
+    public void EnableMoveSelection(bool enabled)
     {
         moveSelector.SetActive(enabled);
         moveDetails.SetActive(enabled);
@@ -80,7 +80,7 @@ public class BattleDialog : MonoBehaviour
         for (int i = 0; i < moveTexts.Count; i++)
         {
             if (i < moves.Count)
-                moveTexts[i].text = moves[i].Pokemon.Base.Name;
+                moveTexts[i].text = moves[i].Base.Name;
             else
             {
                 moveTexts[i].text = "-";
