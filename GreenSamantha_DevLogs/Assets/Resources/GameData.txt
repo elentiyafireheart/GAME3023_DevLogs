@@ -1,8 +1,8 @@
 playerHealth=100
-playerLevel=1
-playerInventory=1
-redPotionsInventory=0
-greenPotionsInventory=0
+playerLevel=5
+playerInventory=3
+redPotionsInventory=1
+greenPotionsInventory=1
 bluePotionsInventory=1
-playerXPosition=0.7202513
-playerYPosition=0.2362565
+playerXPosition=3.362203
+playerYPosition=-1.379176
