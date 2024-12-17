@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
     private Animator _animator; // exposes the animator
     public GameObject Camera_1;
     public GameObject Camera_2;
-    public GameObject Ability_3;
 
     [SerializeField] private CanvasGroup gameUI;
     [SerializeField] private CanvasGroup battleUI;
@@ -70,7 +69,6 @@ public class PlayerController : MonoBehaviour
     {
         LoadData();
         Cam_1();
-        Ability_3.SetActive(false);
 
         _promptText.enabled = false;
         _infoText.enabled = false;
@@ -208,10 +206,6 @@ public class PlayerController : MonoBehaviour
                     templateEnemyObj = Instantiate(_enemyTemplatePrefab);
                     Debug.Log("Encountered an enemy!");
                     Cam_2();
-                    if (playerLevel >= 2)
-                    {
-                        Ability_3.SetActive(true);
-                    }
                 }
             }
         }
@@ -232,10 +226,6 @@ public class PlayerController : MonoBehaviour
                     specialEnemyObj = Instantiate(_enemySpecialPrefab);
                     Debug.Log("Encountered an enemy!");
                     Cam_2();
-                    if (playerLevel >= 2)
-                    {
-                        Ability_3.SetActive(true);
-                    }
                 }
             }
         }

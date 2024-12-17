@@ -7,7 +7,7 @@ public class CreditsMenu : MonoBehaviour
 { 
     public void MainMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
     }
 
     public void ExitGame()

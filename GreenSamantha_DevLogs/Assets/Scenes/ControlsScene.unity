@@ -671,7 +671,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2025833977}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: CreditsBack
+        m_MethodName: MainMenuBack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -701,7 +701,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a79cf0320cc48ab44a42c7bd9b48d8d8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9e3dfe442cf211f4fb9d9f18114de30d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1324,12 +1324,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Use the Arrow Keys
+  m_text: 'Arrow keys
 
-    for action selection
+    to select action
 
 
-    Press "z" to confirm'
+    "Z" to confirm'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1829,12 +1829,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'W, A, S, D - Movement
+  m_text: '"W" to walk up
+
+    "A" to walk left
+
+    "S" to walk down
+
+    "D" to
+    walk left
 
 
-    P - Pause the game
+    "E" to pickup
 
-    I - Inventory'
+    "I" to open inventory
+
+    "P" to pause the
+    game'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2002,7 +2012,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BATTLE SYSTEM
+  m_text: BATTLE CONTROLS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
