@@ -24,9 +24,19 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void Controls()
+    {
+        SceneManager.LoadScene("ControlsScene");
+    }
+
     public void PlayCredits()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        SceneManager.LoadScene("CreditsScene");
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenuScene");
     }
 
     public void ExitGame()
