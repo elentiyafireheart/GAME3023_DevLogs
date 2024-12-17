@@ -1,2 +1,4 @@
 Acknowledgements
-CouchFerret makes Games on Youtube for Character Movement
+
+For Pokémon Battle System
+GameDevExperiments. (2020/05/31). GameDevExperiments [YouTube channel]. YouTube. https://www.youtube.com/@GameDevExperiments

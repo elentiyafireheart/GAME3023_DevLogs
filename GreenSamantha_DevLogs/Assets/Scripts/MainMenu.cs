@@ -34,7 +34,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("CreditsScene");
     }
 
-    public void MainMenu()
+    public void MainMenuBack()
     {
         SceneManager.LoadScene("MainMenuScene");
     }
